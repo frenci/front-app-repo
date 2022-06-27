@@ -69,7 +69,7 @@ jobs:
           kustomize edit set image ${{ steps.login-ecr.outputs.registry}}/${{ steps.image-info.outputs.ecr_repository }}=${{ steps.login-ecr.outputs.registry}}/${{ steps.image-info.outputs.ecr_repository }}:${{ steps.image-info.outputs.image_tag }}
           cat kustomization.yaml
 
-      - name: Commit files
+      - name: Commit files using git
         run: |
           cd k8s-manifest-repo
           git config --global user.email "frenci.rama@gmail.com"
