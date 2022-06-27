@@ -48,13 +48,14 @@ jobs:
           echo "::set-output name=image_tag::$IMAGE_TAG"
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
 
       - name: Checkout kustomize repository
         uses: actions/checkout@v2
         with:
-          repository: jinseo-jang/k8s-manifest-repo
+          repository: frenci/k8s-manifefst-repo
           ref: main
           token: ${{ secrets.ACTION_TOKEN }}
           path: k8s-manifest-repo
@@ -71,8 +72,8 @@ jobs:
       - name: Commit files
         run: |
           cd k8s-manifest-repo
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "github-actions"
+          git config --global user.email "frenci.rama@gmail.com"
+          git config --global user.name "frenci"
           git commit -am "Update image tag"
           git push -u origin main
 
