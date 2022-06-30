@@ -1,6 +1,6 @@
 
 FROM nginx:latest
-LABEL Author="frenci@amazon.com"
+LABEL Author="frencirama@amazon.com"
 
 
 RUN mkdir /app
