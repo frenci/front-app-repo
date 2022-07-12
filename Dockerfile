@@ -1,5 +1,5 @@
 FROM nginx:latest
-LABEL Author="frenci@amazon.com"
+LABEL Author="frencir@amazon.com"
 RUN mkdir /app
 WORKDIR /app
 RUN mkdir ./build
